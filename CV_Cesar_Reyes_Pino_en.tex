@@ -1,0 +1,283 @@
+%% cv.tex
+%% Copyright 2017 Zeyi Fan
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Zeyi Fan.
+%
+% This work consists of only the file cv.tex
+
+\documentclass{article}
+\usepackage[top=.4in, bottom=.0in, left=3in, right=0.4in,marginparwidth=2.5in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{fontspec}
+\usepackage{titlesec}
+\usepackage{pstricks}
+\usepackage{amssymb}
+\usepackage{paralist}
+
+%\usepackage[pdfauthor={Zeyi Fan},
+            %pdftitle={Zeyi Fan's Resume},
+            %pdfkeywords={}]{hyperref}
+\usepackage{hyperref}
+
+\definecolor{mygray}{gray}{0.95}
+\definecolor{lightdark}{gray}{0.55}
+\definecolor{dark}{gray}{0.3}
+\definecolor{skillbg}{gray}{0.7}
+
+\newcommand{\amount}{5.7in}
+\setcounter{section}{-1}
+
+\linespread{1.2}
+\pagenumbering{gobble}
+
+\renewcommand{\labelitemi}{$\blacksquare$}
+\renewenvironment{itemize}[1]{\begin{compactitem}#1}{\end{compactitem}}
+
+% Helpers
+
+\newcommand\twodigits[1]{%
+   \ifnum#1<10 0#1\else #1\fi
+}
+
+%\newcommand\hl[1]{{\ralewaysb #1}}
+\newcommand\hl[1]{#1}
+
+
+% Fonts
+
+\newfontfamily\raleway{Raleway}
+\newfontfamily\ralewaym{Raleway Medium}
+\newfontfamily\ralewaysb{Raleway SemiBold}
+\newfontfamily\ralewayb{Raleway Bold}
+\newfontfamily\ralewayeb{Raleway ExtraBold}
+\newfontfamily\ralewaybb{Raleway Black}
+
+\setmainfont{Raleway}
+
+
+% Styles
+\newcommand{\name}[2]{
+    \begin{center}
+        \Huge{
+            \ralewayeb{#1 #2}
+        }
+    \end{center}
+}
+
+\newcommand{\tagline}[1]{
+    \begin{center}
+        \large{
+            \color{dark}
+            \ralewaysb{#1}
+        }
+        \vspace{.2em}
+    \end{center}
+}
+
+\renewcommand{\thesection}{\twodigits{\arabic{section}}.}
+
+\titleformat{\section}
+[hang]
+{\ralewaysb\large\color{dark}}
+{}
+{.0em}
+{}
+[{\titlerule[0.8pt]}]
+
+\titlespacing*{\section}{0pt}{4pt}{10pt}
+
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+\setlength{\parindent}{0mm}
+
+\newcommand{\contactline}[2]{
+    \ralewaysb{#1} & \raleway{#2}
+}
+
+\newcommand{\skill}[2]{
+    \vspace{.2em}
+    \ralewayb{#1}
+
+    \psset{xunit=0.197\linewidth, yunit=5pt}
+    \begin{pspicture}[showgrid=false](5,1)
+        \psline[linecolor=skillbg](0,0.5)(5,0.5)
+        \psline[linecolor=skillbg,arrows=|-|](1,0.5)(2,0.5)
+        \psline[linecolor=skillbg,arrows=|-|](3,0.5)(4,0.5)
+        \psline[linecolor=skillbg,arrows=-|](0,0.5)(5,0.5)
+
+        \psline[linecolor=black,arrows=|-|](0,0.5)(#2,0.5)
+    \end{pspicture}
+}
+
+\newcommand{\block}[3]{
+    {\large\ralewayb #1}
+
+    \ralewaym{\color{lightdark}#2}
+
+    \raleway{#3}
+}
+
+\begin{document}
+
+% background
+
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[mygray] (current page.south west) rectangle ([xshift=-\amount]current page.north east);
+\end{tikzpicture}
+
+% Side Bar
+
+\begin{textblock}{58.5}(6,7.7)
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.6\linewidth]{photo}
+	\end{figure}
+
+    \name{C\'esar}{Reyes}
+
+    %\tagline{Student \& Developer}
+
+    \section{About me}
+
+    \color{dark}
+	I'm an Electronic Engineer with \\
+	specialization in informatics. I have worked as Data Scientist during last 3 years in a research project (signal processing, machine learning, data analysis and visualization). I have worked in a multidisciplinary environment with team player.
+
+    \section{Contact}
+
+    \renewcommand{\arraystretch}{1.1}
+
+    \begin{tabular}{rl}
+        \contactline{Celular}{(+598) 92716167} \\
+        \contactline{Email}{cesar.reyesp@gmail.com} \\
+%        \contactline{Website}{\href{https://zr.is}{zr.is}} \\
+        \contactline{GitHub}{\href{https://github.com/creyesp}{@creyesp}} \\
+        \contactline{LinkedIn}{\href{https://linkedin.com/in/creyesp}{/in/creyesp}}
+    \end{tabular}
+
+    \section{Skills}
+	
+    \skill{Python (+3 years)}{4}
+    
+    \skill{Linux (+9 years)}{4}
+
+    \skill{Matlab (+3 years)}{3}
+    
+    \skill{Bash script (+3 years)}{3.5}
+    
+    \skill{Git}{3}
+        
+    \skill{C/C++}{3}
+    
+    \skill{SQL}{2}
+    
+%    \skill{\TeX}{3}
+%    \skill{Nginx}{1}
+%    \skill{JavaScript}{4}
+%    \skill{Java}{4}
+%    \skill{Go}{4}
+%    \skill{Scala}{4}
+%    \skill{VimL}{3}
+%    \skill{PHP}{3}
+%    \skill{Ruby}{2.5}
+%    \skill{Haskell}{2}
+	\\Others: Java, PHP, Arduino\\
+	
+    \section{Languages}
+    \skill{English}{2.5}
+    
+    \skill{Spanish}{5}
+
+\end{textblock}
+
+% Main
+
+\vspace{-25pt}  % Change this value to adjust the position of the right
+
+\section{Experience}
+
+\block{Data Scientist}
+{Federico Santa María Technical University | Valparaíso, Chile | April 2015 – February 2018}
+{
+	Data acquisition, exploration, analysis and visualization to classify or cluster them. Making reports to the supervisor every week, working in team player with different professionals.
+	
+	\begin{itemize}[-]
+		\item Development of 4 data science projects using Python and Matlab.
+		\item Use of Machine Learning for each project.
+		\item Improvement of algorithms in some code to get better time in the data processing.
+		
+	\end{itemize}
+	Technical skills:
+	- Python, Matlab for data science.
+	- Bash script.
+}
+
+\vspace{.5em}
+
+\block{Software developer}
+{Interdisciplinary Center for Neuroscience of Valparaiso | Valparaíso, Chile | March 2017 – February 2018}
+{
+	Development of software to make experimental protocols in a science laboratory, getting requirements of the supervisor and end users. Also responsible of fix electronic errors in the laboratory equipment.  
+	
+	\begin{itemize}[-]
+		\item Development and implementation of 2 software to control a register equipment using digital/analog signals.
+		\item Creation of documentation for the end users for each software.
+		\item Checking, maintenance and improve the electronic equipment using the microcontrollers.
+
+	\end{itemize}
+	Technical skills:
+	- Development of software and graphic interface in Matlab.
+	- Development of modules in Arduino.
+}
+
+\vspace{.5em}
+
+\block{Internship}
+{Alta Voz S.A.  | Viña del Mar, Chile | March 2014 – April 2014}
+{
+	Research and implement a Intrusion Detection System (IDS) in the servers to improve the security layers using a open source software.\\
+	Technical skills:
+	- Server administration, Debian and IDSs.	
+}
+
+\vspace{.5em}
+
+\block{Internship}
+{Axiovista S.A.   | Santiago, Chile | January 2013 – February 2013}
+{
+	Develop a Front-End for Embedded system using a Model-view-controller architecture.\\
+	Technical skills:
+	- Debian and MVC.
+}
+
+\section{Education}
+
+\block{Federico Santa María Technical University- UTFSM}
+{Electronic engineer with specialization in informatics.}
+
+{
+	Thesis: Creation a new module for the free software Snort, this software is a Network Intrusion Detecion System (NIDS) and the new module available to detect new attacks using Machine Learning. The code was write in C.
+}
+
+
+\section{Awards}
+
+\ralewaysb Academic excellence. \raleway Federico Santa María Technical University \hfill 2007-2012
+
+\ralewaysb Academic excellence. \raleway Electronic department - UTFSM\hfill 2007
+
+
+\end{document}
