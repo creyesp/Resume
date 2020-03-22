@@ -1,0 +1,296 @@
+%% cv.tex
+%% Copyright 2017 Zeyi Fan
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+%
+% The Current Maintainer of this work is Zeyi Fan.
+%
+% This work consists of only the file cv.tex
+
+\documentclass{article}
+\usepackage[top=.4in, bottom=.0in, left=3in, right=0.4in,marginparwidth=2.5in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{fontspec}
+\usepackage{titlesec}
+\usepackage{pstricks}
+\usepackage{amssymb}
+\usepackage{paralist}
+
+\usepackage[pdfauthor={Cesar Reyes}, pdftitle={Cesar Reyes's Resume}, pdfkeywords={}]{hyperref}
+\usepackage{hyperref}
+
+\definecolor{mygray}{gray}{0.95}
+\definecolor{lightdark}{gray}{0.55}
+\definecolor{dark}{gray}{0.3}
+\definecolor{skillbg}{gray}{0.7}
+
+\newcommand{\amount}{5.7in}
+\setcounter{section}{-1}
+
+\linespread{1.2}
+\pagenumbering{gobble}
+
+\renewcommand{\labelitemi}{$\blacksquare$}
+\renewenvironment{itemize}[1]{\begin{compactitem}#1}{\end{compactitem}}
+
+% Helpers
+\newcommand\twodigits[1]{%
+	\ifnum#1<10 0#1\else #1\fi
+}
+
+%\newcommand\hl[1]{{\ralewaysb #1}}
+\newcommand\hl[1]{#1}
+
+
+% Fonts
+\newfontfamily\raleway{Raleway}
+\newfontfamily\ralewaym{Raleway Medium}
+\newfontfamily\ralewaysb{Raleway SemiBold}
+\newfontfamily\ralewayb{Raleway Bold}
+\newfontfamily\ralewayeb{Raleway ExtraBold}
+\newfontfamily\ralewaybb{Raleway Black}
+
+\setmainfont{Raleway}
+
+% Styles
+\newcommand{\name}[2]{
+	\begin{center}
+		\Huge{
+			\ralewayeb{#1 #2}
+		}
+	\end{center}
+}
+
+\newcommand{\tagline}[1]{
+	\begin{center}
+		\large{
+			\color{dark}
+			\ralewaysb{#1}
+		}
+		\vspace{.2em}
+	\end{center}
+}
+
+\renewcommand{\thesection}{\twodigits{\arabic{section}}.}
+
+\titleformat{\section}
+[hang]
+{\ralewaysb\large\color{dark}}
+{}
+{.0em}
+{}
+[{\titlerule[0.8pt]}]
+
+\titlespacing*{\section}{0pt}{4pt}{10pt}
+
+\setlength{\TPHorizModule}{1mm}
+\setlength{\TPVertModule}{1mm}
+\setlength{\parindent}{0mm}
+
+\newcommand{\contactline}[2]{
+	\ralewaysb{#1} & \raleway{#2}
+}
+
+\newcommand{\skill}[2]{
+	\vspace{.2em}
+	\ralewayb{#1}
+	
+	\psset{xunit=0.197\linewidth, yunit=5pt}
+	\begin{pspicture}[showgrid=false](5,1)
+	\psline[linecolor=skillbg](0,0.5)(5,0.5)
+	\psline[linecolor=skillbg,arrows=|-|](1,0.5)(2,0.5)
+	\psline[linecolor=skillbg,arrows=|-|](3,0.5)(4,0.5)
+	\psline[linecolor=skillbg,arrows=-|](0,0.5)(5,0.5)
+	
+	\psline[linecolor=black,arrows=|-|](0,0.5)(#2,0.5)
+	\end{pspicture}
+}
+
+\newcommand{\block}[3]{
+	{\large\ralewayb #1}
+	
+	\ralewaym{\color{lightdark}#2}
+	
+	\raleway{#3}
+}
+
+\begin{document}
+	
+	% background
+	
+	\begin{tikzpicture}[remember picture,overlay]
+	\fill[mygray] (current page.south west) rectangle ([xshift=-\amount]current page.north east);
+	\end{tikzpicture}
+	
+	% Side Bar
+	
+	\begin{textblock}{58.5}(6,7.7)
+		%    \begin{figure}
+		%        \centering
+		%        \includegraphics[width=0.6\linewidth]{photo}
+		%    \end{figure}
+		
+		\name{C\'esar}{Reyes}
+		
+		%\tagline{Student \& Developer}
+		
+		\section{Resumen}
+		
+		\color{dark}
+		
+		Apasionado por los temas de datos, inteligencia artificial y el mundo open source. Estos últimos años he desarrollado mi carrera como científico de datos en el mundo empresarial y en la Neurociencia. Esto ha ayudado a desarrollar mis habilidades en el pensamiento lógico, creatividad, resolución de problemas, comunicación y trabajo en equipo.
+		Vengo de la cultura de equipos multidisciplinarios y remoto los cuales valoró en el día a día.
+		
+		\section{Contacto}
+		
+		\renewcommand{\arraystretch}{1.1}
+		
+		\begin{tabular}{rl}
+			\contactline{Celular}{(+598) 92716167} \\
+			\contactline{Email}{cesar.reyesp@gmail.com} \\
+			\contactline{Edad}{31} \\
+			\contactline{GitHub}{\href{https://github.com/creyesp}{@creyesp}} \\
+			\contactline{LinkedIn}{\href{https://linkedin.com/in/creyesp}{/in/creyesp}}
+		\end{tabular}
+		
+		\section{Habilidades}
+		
+		%    \skill{Python (+3 años)}{4}
+		\textbf{Lenguajes}: Python, Matlab, C/C++\\
+		\textbf{Stack tecnologico}: GCP, Azure CI/CD, Git, SQL (postgres, mssql), Airflow\\
+		\textbf{Familiarizado con}: Bash, R, MongoDB\\
+		\textbf{Data analisis}: Numpy, Pandas, Scipy, H5py, Matplotlib, Seaborn, Bokeh,
+		Scikit-Learn, TensorFlow, Keras\\
+		\textbf{SO}: GNU/Linux, Windows
+		
+		\section{Idiomas}
+		\textbf{Español, Ingles}
+		
+		
+	\end{textblock}
+	
+	% Main
+	
+	\vspace{-25pt}  % Change this value to adjust the position of the right
+	
+	\section{Experiencia Laboral}
+	
+	\block{Ssr Data Scientist}
+	{Bluekiri | Montevideo, Uruguay | Enero 2019 - Actualmente}
+	{
+		Bluekiri es una empresa que pertenece al grupo Logitravel (rubro del turismo) donde el área de Data Science presta servicios a las líneas de negocio en diferente proyectos. Algunos en los que he participado son TTL report, Revenue manager, Cancellation Forecast, Auto Accuracy. Donde aplicando técnicas de ciencia de datos y machine learning se logró mejorar problemas de negocio.
+		\begin{itemize}
+			\item Desarrollo de modelos de Machine Learning
+			\item Desarrollo de bibliotecas custom en Python
+			\item Desarrollo de pipelines de datos en Apache Airflow
+			\item Uso de diversos servicios de google cloud
+		\end{itemize}
+		
+	}
+	
+	\vspace{.5em}
+	
+	\block{Data Scientist}
+	{Universidad Técnica Federico Santa María | Valparaíso, Chile | Mayo 2018 – Diciembre 2018}
+	{
+		En el marco de un proyecto de Neurociencia en colaboración del el Instituto de Sistemas Complejos de Valparaíso y trabajando $100\%$ remoto era uno de los responsables de realizar exploración, análisis y visualización de datos, obteniendo nuevos e interesantes resultados para contribuir en el campo científico.
+		
+		\begin{itemize}
+			\item Desarrollo del package Spikelib alojado en Pypi.
+			\item Desarrollo e implementación de templates para el análisis y procesamiento de datos.
+			\item Generación de modelos estadísticos.
+			\item Generación de reportes periódicos.
+		\end{itemize}
+		
+		
+	}
+	
+	\vspace{.5em}
+	
+	\block{Research Assistant}
+	{Universidad Técnica Federico Santa María | Valparaíso, Chile | Abril 2015 – Febrero 2018}
+	{
+		Integrante de un proyecto de investigación de neurociencia donde junto a un equipo multidisciplinarios trabajamos en descubrir el funcionamiento del sistema visual. Mis responsabilidades eran adquisición, exploración, análisis y visualización de datos para luego aplicar técnicas de clustering en busqueda de grupos de células.
+		
+		\begin{itemize}
+			\item Desarrollo de 4 proyectos diferentes.
+			\item Migración de algoritmos y script de Matlab a Python.
+			\item Mejora en algoritmos existentes logrando mejores tiempos en el procesamiento de datos.
+			\item Generación de reportes al encargado de la investigación
+			
+		\end{itemize}    
+		
+		Publicaciones: \\
+		Characterization of Retinal Functionality at different Eccentricities in a Diurnal Rodent \url{https://doi.org/10.1101/277814 }
+	}
+	
+	\vspace{.5em}
+	
+	\block{Software developer}
+	{Centro Interdisciplinario de Neurociencia Valparaíso | Valparaíso, Chile | Marzo 2017 – Febrero 2018}
+	{
+		Responsable de desarrollo de software para automatizar protocolos de expe- rimentación científica, recibiendo requerimientos del jefe de proyecto y de los usuarios finales, además encargado de resolver problemas en equipos electrónicos usados por el centro.
+		\begin{itemize}[-]
+			\item Desarrollo de software y interfaces gráficas en Matlab.
+			\item Desarrollo de programas en Arduino.
+		\end{itemize}
+	}
+	
+	\vspace{.5em}
+	\section{Educación}
+	
+	\block{Ingeniero Civil Electrónico con especialidad en Informática}
+	{Universidad Técnica Federico Santa María - Titulado 2016}
+	{
+		Memoria de título profesional: Creación de un módulo en Snort para la detección de intrusos en la red con técnicas estadísticas. Desarrollado en C.
+		
+	}
+	
+	\section{Pasantías}
+	\block{Pasantia Universitaria}
+	{Altavoz S.A.  | Viña del Mar, Chile | Marzo 2014 – Abril 2014}
+	{
+		Responsable de investigar e implementar un Sistema de Detección de Intrusos (IDS) de código abierto en los servidores de la empresa. \\
+	}
+	
+	\vspace{.5em}
+	
+	\block{Pasantia Universitaria}
+	{Axiovista S.A.   | Santiago, Chile | Enero 2013 – Febrero 2013}
+	{
+		Desarrollo de un Front-end en sistemas embebidos usando una arquitectura Model-view-controller.\\
+	}
+	
+	\section{Cursos}
+	\begin{itemize}[-]
+		\item Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, (book) 2nd Edition \hfill 2020
+		\item The Hundred-Page Machine Learning Book (book) by Andriy Burkov \hfill 2019   
+
+		\item Workshop Categorización de Productos con Deep Learning (Mercado Libre) \hfill 2019
+		\item PyData Córdoba \hfill 2019
+		\item Curso online de data science en python dictado por la Universidad de San Diego, California por el portal EdX (Python for Data Science UCSanDiegoX - DSE200x). \hfill 2018
+		\item  Workshop dictado por Tryolabs para la detección de objetos usando TensorFlow.  \hfill Nov 2018
+
+	\end{itemize}
+
+	\section{Reconocimientos}
+	
+	\ralewaysb Excelencia Académica. \raleway Universidad Técnica Federico Santa María \hfill 2007-2012
+	\ralewaysb Mérito Académico. \raleway Departamento de Electrónica - UTFSM\hfill 2007
+	
+	\section{Otras actividades}
+	Co-Organizado de la Meetup Montevideo Applied Data Science and Big Data UY
+
+
+\end{document}
