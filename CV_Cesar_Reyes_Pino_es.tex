@@ -27,6 +27,11 @@
 \usepackage{amssymb}
 \usepackage{paralist}
 
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
 \usepackage[pdfauthor={Cesar Reyes}, pdftitle={Cesar Reyes's Resume}, pdfkeywords={}]{hyperref}
 \usepackage{hyperref}
 
@@ -143,14 +148,14 @@
 		
 		\name{C\'esar}{Reyes}
 		
-		%\tagline{Student \& Developer}
+		\tagline{Data Scientist \& ML engineer}
 		
 		\section{Resumen}
 		
 		\color{dark}
 		
-		Apasionado por los temas de ciencia de datos, inteligencia artificial y el mundo open source. 
-		Estos últimos años he desarrollado mi carrera como científico de datos en el mundo empresarial y en la Neurociencia donde he desarrollado mis habilidades de pensamiento lógico, creatividad, resolución de problemas, comunicación y trabajo en equipo. Además vengo de la cultura del trabajo con equipos multidisciplinarios y remoto los cuales valoró en el mundo laboral.
+		Apasionado por los temas de \\ciencia de datos, inteligencia artificial y el mundo open source. 
+		Inicie mi carrera de cientifico de datos en un centro de Neurociencia para luego seguir en el mundo empresarial, siempre con el objetivo de generar valor a partir de los datos. Autodidacta, difusor del conocimiento y Co-orgaizador de la Meetup de Data Science Montevideo.
 		
 		\section{Contacto}
 		
@@ -159,7 +164,7 @@
 		\begin{tabular}{rl}
 			\contactline{Celular}{(+598) 92716167} \\
 			\contactline{Email}{cesar.reyesp@gmail.com} \\
-			\contactline{Edad}{31} \\
+			\contactline{Edad}{32} \\
 			\contactline{GitHub}{\href{https://github.com/creyesp}{@creyesp}} \\
 			\contactline{LinkedIn}{\href{https://linkedin.com/in/creyesp}{/in/creyesp}}
 		\end{tabular}
@@ -168,11 +173,12 @@
 		
 		%    \skill{Python (+3 años)}{4}
 		\textbf{Lenguajes}: Python, Matlab, C/C++\\
-		\textbf{Stack tecnologico}: GCP, Azure CI/CD, Git, SQL (postgres, mssql), Airflow\\
-		\textbf{Familiarizado con}: Bash, R, MongoDB\\
+		\textbf{Cloud platform}: GCP, Azure CI/CD \\
+		\textbf{Stack tecnologico}:  SQL (postgres, mssql), MongoDB, Git, Airflow, Apache Beam, Docker\\
+		\textbf{Familiarizado con}: Bash, R\\
 		\textbf{Data analisis}: Numpy, Pandas, Scipy, H5py, Matplotlib, Seaborn, Bokeh,
 		Scikit-Learn, TensorFlow, Keras\\
-		\textbf{SO}: GNU/Linux, Windows
+		\textbf{SO}: GNU/Linux
 		
 		\section{Idiomas}
 		\textbf{Español, Ingles}
@@ -185,16 +191,29 @@
 	\vspace{-25pt}  % Change this value to adjust the position of the right
 	
 	\section{Experiencia Laboral}
-	
-	\block{Ssr Data Scientist}
-	{Bluekiri | Montevideo, Uruguay | Enero 2019 - Actualmente}
+	\block{Data Scientist}
+	{PedidosYa | Montevideo, Uruguay | Mayo 2020 - Actualidad}
 	{
-		Bluekiri es una empresa que pertenece al grupo Logitravel (rubro del turismo) donde el área de Data Science presta servicios a las líneas de negocio en diferente proyectos. Algunos en los que he participado son TTL report, Revenue manager, Cancellation Forecast, Auto Accuracy. Donde aplicando técnicas de ciencia de datos y machine learning se logró mejorar problemas de negocio.
+		En PedidosYa formó parte del equipo de Analytic Factory el cual brinda apoyo de data analytics en diferentes equipos de producto. Algunas responsabilidades:
+		
 		\begin{itemize}
-			\item Desarrollo de modelos de Machine Learning
-			\item Desarrollo de bibliotecas custom en Python
-			\item Desarrollo de pipelines de datos en Apache Airflow
-			\item Uso de diversos servicios de google cloud
+			\item Trabajar con los stakeholders identificando oportunidad y mejoras en los productos usando técnicas de ML.
+			\item Desarrollar modelos de ML y llevar estos a producción.
+			\item Desarrollar framework para realizar A/B testing
+		\end{itemize}
+	}
+	
+	\vspace{.5em}
+	
+	\block{Data Scientist/ML Engineer}
+	{Alphalabs | Montevideo, Uruguay | Junio 2020 - Actualidad}
+	{
+		Co-fundador de AlphaLabs y miembro del área de Data Science. Mis responsabilidades son:
+		
+		\begin{itemize}
+			\item Implementación de modelos de ML y ETL en streaming de datos usando Apache Beam.
+			\item Uso de técnicas de scraping para recolección de data disponible en internet.
+			\item Desarrollo de APIs para modelos
 		\end{itemize}
 		
 	}
@@ -202,17 +221,36 @@
 	\vspace{.5em}
 	
 	\block{Data Scientist}
-	{Universidad Técnica Federico Santa María | Valparaíso, Chile | Mayo 2018 – Diciembre 2018}
+	{Bluekiri | Montevideo, Uruguay | Enero 2019 - Mayo 2020}
 	{
-		En el marco de un proyecto de Neurociencia en colaboración del el Instituto de Sistemas Complejos de Valparaíso y trabajando $100\%$ remoto era uno de los responsables de realizar exploración, análisis y visualización de datos, obteniendo nuevos e interesantes resultados para contribuir en el campo científico.
+		Bluekiri parte del grupo Logitravel (rubro del turismo) donde el área de Data Science presta servicios a las líneas de negocio para descubrir e impulsar las decisiones basadas en datos. Mis responsabilidades eran:
+		
 		
 		\begin{itemize}
-			\item Desarrollo del package Spikelib alojado en Pypi.
+			\item Desarrollar un modelo de recomendación de precio para hoteles y un modelo de predicción de cancelación de reservas.
+			\item Analizar data interna de la empresa para dar insights accionables a negocio.
+			\item Desarrollo de bibliotecas custom en Python (CI/CD) para manejar desde la colección de los dato, el modelado hasta el reporte de los proyectos
+			\item Automatiza pipelines de datos con Apache Airflow
+			\item Uso de diversos servicios de Google Cloud y Azure CI/CD.
+		\end{itemize}
+		
+	}
+	
+	
+	\vspace{.5em}
+	
+	\block{Data Scientist}
+	{Universidad Técnica Federico Santa María | Remoto | Mayo 2018 – Diciembre 2018 }
+	{
+		En el marco de un proyecto de Neurociencia en colaboración del el Instituto de Sistemas Complejos de Valparaíso y la UTFSM formaba parte de un equipo que está contribuir en el campo científico. Mis responsabilidades eran:
+		
+		\begin{itemize}
+			\item Recolectar la data, realizar exploración, análisis y visualización de estos.
+			\item Desarrollo del package Spikelib alojado en PyPi.
 			\item Desarrollo e implementación de templates para el análisis y procesamiento de datos.
 			\item Generación de modelos estadísticos.
 			\item Generación de reportes periódicos.
 		\end{itemize}
-		
 		
 	}
 	
@@ -221,12 +259,13 @@
 	\block{Research Assistant}
 	{Universidad Técnica Federico Santa María | Valparaíso, Chile | Abril 2015 – Febrero 2018}
 	{
-		Integrante de un proyecto de investigación de neurociencia donde junto a un equipo multidisciplinarios trabajamos en descubrir el funcionamiento del sistema visual. Mis responsabilidades eran adquisición, exploración, análisis y visualización de datos para luego aplicar técnicas de clustering en busqueda de grupos de células.
+		Integrante de un proyecto de investigación de neurociencia donde junto a un equipo multidisciplinarios trabajamos en descubrir el funcionamiento del sistema visual. Mis responsabilidades eran:
 		
 		\begin{itemize}
+			\item adquisición, exploración, análisis y visualización de datos para luego aplicar técnicas de clustering en búsqueda de grupos celulares.
 			\item Desarrollo de 4 proyectos diferentes.
 			\item Migración de algoritmos y script de Matlab a Python.
-			\item Mejora en algoritmos existentes logrando mejores tiempos en el procesamiento de datos.
+			\item Optimizar algoritmos existentes logrando mejores tiempos en el procesamiento de datos.
 			\item Generación de reportes al encargado de la investigación
 			
 		\end{itemize}    
@@ -236,15 +275,12 @@
 	}
 	
 	\vspace{.5em}
+
 	
 	\block{Software developer}
 	{Centro Interdisciplinario de Neurociencia Valparaíso | Valparaíso, Chile | Marzo 2017 – Febrero 2018}
 	{
-		Responsable de desarrollo de software para automatizar protocolos de expe- rimentación científica, recibiendo requerimientos del jefe de proyecto y de los usuarios finales, además encargado de resolver problemas en equipos electrónicos usados por el centro.
-		\begin{itemize}[-]
-			\item Desarrollo de software y interfaces gráficas en Matlab.
-			\item Desarrollo de programas en Arduino.
-		\end{itemize}
+		Responsable de desarrollo de software para automatizar protocolos de expe- rimentación científica, recibiendo requerimientos del jefe de proyecto y de los usuarios finales.
 	}
 	
 	\vspace{.5em}
@@ -274,6 +310,7 @@
 	
 	\section{Cursos}
 	\begin{itemize}[-]
+		\item Full Stack Deep Learning Course \hfill 2020
 		\item Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, (book) 2nd Edition \hfill 2020
 		\item The Hundred-Page Machine Learning Book (book) by Andriy Burkov \hfill 2019   
 
